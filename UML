@@ -1,0 +1,63 @@
++-------------------+
+|      Carta        |
++-------------------+
+| - valor: int      |
+| - representacion: List<String> |
++-------------------+
+| + getValor(): int |
+| + getRepresentacion(): List<String> |
+| + toString(): String |
++-------------------+
+
++-------------------+
+|       Mano        |
++-------------------+
+| - cartas: List<Carta> |
++-------------------+
+| + añadirCarta(c: Carta): void |
+| + quitarCarta(c: Carta): void |
+| + calcularValor(): int |
+| + imprimir(): void |
++-------------------+
+
+            ^
+            |
++-------------------+
+|      Baraja       |  extends Mano
++-------------------+
+| + Baraja()        |
+| + mezclar(): void |
+| + repartirMano(n: int): Mano |
++-------------------+
+
++-------------------+
+|     Jugador       |
++-------------------+
+| - dinero: double  |
+| - mano: Mano      |
++-------------------+
+| + apostar(cantidad: double): void |
+| + getMano(): Mano |
+| + getDinero(): double |
++-------------------+
+
+            ^
+            |
++-------------------+
+|     Krupier       |  extends Jugador
++-------------------+
+| - baraja: Baraja  |
++-------------------+
+| + repartirCarta(j: Jugador): void |
+| + repartirCartaASiMismo(): void   |
++-------------------+
+
+Carta es la unidad básica.
+
+Mano contiene varias Carta (composición).
+
+Baraja hereda de Mano (es una mano especial con todas las cartas).
+
+Jugador tiene una Mano y dinero.
+
+Krupier hereda de Jugador y además gestiona una Baraja.
