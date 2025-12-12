@@ -8,20 +8,30 @@ class Hand:
     def calculate_value(self):
         value = 0
         for card in self.cards:
-            value += card.value
+            if card.value == "K":
+                value += 13
+            else:
+                value += int(card.value)
+        return value
     def print_cards(self):
         n_cards = len(self.cards)
         for i in range(n_cards):
             print(f" ___", end="\t")
         print()
         for i in range(n_cards):
-            print(f"|{self.cards[i].value}  |", end="\t")
+            if self.cards[i].value == "10":
+                print(f"|{self.cards[i].value} |", end="\t")
+            else:
+                print(f"|{self.cards[i].value}  |", end="\t")
         print()
         for i in range(n_cards):
             print(f"| {self.cards[i].suit} |", end="\t")
         print()
         for i in range(n_cards):
-            print(f"|__{self.cards[i].value}|", end="\t")
+            if self.cards[i].value == "10":
+                print(f"|{self.cards[i].value}_|", end="\t")
+            else:
+                print(f"|{self.cards[i].value}__|", end="\t")
         print()
 
 
