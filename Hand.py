@@ -1,3 +1,4 @@
+import random
 class Hand:
     def __init__(self, cards):
         self.cards = cards
@@ -34,17 +35,14 @@ class Hand:
                 print(f"|{self.cards[i].value}__|", end="\t")
         print()
 
+class Deck(Hand):
+    def __init__(self, cards):
+        super().__init__(cards)
 
-
-
-# class Deck(Hand):
-#     def __init__(self, cards):
-#         super().__init__(cards)
-#     def Deck(self):
-#
-#     def mix_cards(self):
-#
-#     def deal_hand(self, n):
+    def mix_cards(self):
+        random.shuffle(self.cards)
+    def deal_hand(self, n):
+        print("x")
 
 
 
