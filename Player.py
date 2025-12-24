@@ -1,6 +1,3 @@
-from operator import truediv
-
-
 class Player():
     def __init__(self, hand, money):
         self.hand = hand
@@ -11,11 +8,13 @@ class Player():
         return self.hand
     def get_money(self):
         return self.money
-# class Krupier(Player):
-#     def __init__(self, hand, money,deck):
-#         Player.__init__(self, hand, money)
-#         self.deck = deck
-#     def deal_hand(self, player):
-#
-#     def deal_krupier_hand(self):
+    
+class Krupier(Player):
+    def __init__(self, hand, money,deck):
+        Player.__init__(self, hand, money)
+        self.deck = deck
+    def deal_card(self, player):
+        player.get_hand().add_card(self.deck.draw_card())
 
+    def deal_krupier_card(self):
+        self.get_hand().add_card(self.deck.draw_card())

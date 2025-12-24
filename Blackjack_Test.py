@@ -25,17 +25,31 @@ for k in range(4):
             cards.append(Card.Card(symbol, "J"))
         else:
             cards.append(Card.Card(symbol, f"{i + 1}"))
-print(cards[8].show_card())
-print(cards[13].show_card())
-print(cards[26].show_card())
-print(cards[39].show_card())
+# print(cards[8].show_card())
+# print(cards[13].show_card())
+# print(cards[26].show_card())
+# print(cards[39].show_card())
 
 default_deck = Hand.Deck(cards)
-
+# default_deck.show_card(51)
+# default_deck.print_cards()
 default_deck.mix_cards()
-default_deck.
+# default_deck.print_cards()
+# default_deck.show_card(51)
+player1 = Player.Player(Hand.Hand(default_deck.deal_hand()), 1000)
+krupier = Player.Krupier(Hand.Hand(default_deck.deal_hand()), 1000, default_deck)
+# default_deck.deal_hand()[0].show_card()
+player1.get_hand().print_cards()
+print(player1.get_hand().calculate_value())
+krupier.deal_card(player1)
+print("-"*25)
+player1.get_hand().print_cards()
+print(player1.get_hand().calculate_value())
 
-# jugador1 = Player.Player(cartas, 1000)
-# mano_jugador1 = Hand.Hand(jugador1.hand)
+
+# player1.get_hand()[0].show_card()
+# player1.get_hand()[-1].show_card()
+
+# mano_jugador1 = jugador1.get_hand
 # print("Player 1 Hand: ", mano_jugador1.calculate_value())
 # mano_jugador1.print_cards()
