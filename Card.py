@@ -5,6 +5,8 @@ class Card:
         self.value = value
     def get_value(self):
         return self.value
+    def get_suit(self):
+        return self.suit
     def show_card(self):
         if (self.value == "10"):
             print("_"*5)

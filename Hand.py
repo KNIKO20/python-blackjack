@@ -4,8 +4,6 @@ class Hand:
         self.cards = cards
     def add_card(self, card):
         self.cards.append(card)
-    def remove_card(self, card):
-        self.cards.remove(card)
     def calculate_value(self):
         value = 0
         check_aces = 0
@@ -22,37 +20,46 @@ class Hand:
             else:
                 value+=11
         return value
-    def show_card(self, n_card):
-        if (self.cards[n_card].value == "10"):
-            print("_"*5)
-            print(f"|{self.cards[n_card].value} |")
-            print(f"| {self.cards[n_card].suit} |")
-            print(f"|_{self.cards[n_card].value}|")
-        else:
-            print("_" * 5)
-            print(f"|{self.cards[n_card].value}  |")
-            print(f"| {self.cards[n_card].suit} |")
-            print(f"|__{self.cards[n_card].value}|")
+    def get_card(self, n_card):
+        # if (self.cards[n_card].value == "10"):
+        #     print("_"*5)
+        #     print(f"|{self.cards[n_card].value} |")
+        #     print(f"| {self.cards[n_card].suit} |")
+        #     print(f"|_{self.cards[n_card].value}|")
+        # else:
+        #     print("_" * 5)
+        #     print(f"|{self.cards[n_card].value}  |")
+        #     print(f"| {self.cards[n_card].suit} |")
+        #     print(f"|__{self.cards[n_card].value}|")
+        return self.cards[n_card]
 
-    def print_cards(self):
+    def print_cards(self, rol=None):
         n_cards = len(self.cards)
+
         for i in range(n_cards):
             print(f" ___", end="\t")
         print()
         for i in range(n_cards):
-            if self.cards[i].value == "10":
+            if i == 0 and rol=="krupier":
+                print(f"|## |", end="\t")
+            elif self.cards[i].value == "10":
                 print(f"|{self.cards[i].value} |", end="\t")
             else:
                 print(f"|{self.cards[i].value}  |", end="\t")
         print()
         for i in range(n_cards):
-            print(f"| {self.cards[i].suit} |", end="\t")
+            if i == 0 and rol=="krupier":
+                print(f"|###|", end="\t")
+            else:
+                print(f"| {self.cards[i].suit} |", end="\t")
         print()
         for i in range(n_cards):
-            if self.cards[i].value == "10":
-                print(f"|{self.cards[i].value}_|", end="\t")
+            if i == 0 and rol=="krupier":
+                print(f"| ##|", end="\t")
+            elif self.cards[i].value == "10":
+                print(f"|_{self.cards[i].value}|", end="\t")
             else:
-                print(f"|{self.cards[i].value}__|", end="\t")
+                print(f"|__{self.cards[i].value}|", end="\t")
         print()
 
 class Deck(Hand):
